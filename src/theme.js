@@ -10,10 +10,11 @@ export const theme = {
     white: "#ffffff",
     black: "#111111",
     darkGray: "#555555",
+    lightGray: "#E6F1F6",
+    hoverGray: "#CFD8DD",
+    shadowGray: "#a0a0a0",
     red: "#C10C30",
     blue: "#009ED3",
     yellow: "#f7cd5f",
-    gray: "#E6F1F6",
-    shadowGray: "#a0a0a0",
   },
 };
