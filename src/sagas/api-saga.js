@@ -2,7 +2,7 @@ import { call, takeEvery, put } from "redux-saga/effects";
 import axios from "axios";
 import { createAction } from "redux-actions";
 
-const API_BASE_URL = "http://localhost:5000/";
+const API_BASE_URL = "https://jsonplaceholder.typicode.com/";
 const defaultNextType = {
   pending: "REQUEST_PENDING",
   success: "REQUEST_SUCCESS",
