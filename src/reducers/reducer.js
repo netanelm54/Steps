@@ -8,14 +8,20 @@ const initialState = {
 
 export const comments = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_COMMENTS_SUCCESS": {
+    case "FETCH_COMMENTS_SUCCESS":
       return {
         ...state,
         start: action.meta.start,
         limit: action.meta.limit,
         comments: [...state.comments, ...action.payload],
       };
-    }
+
+    case "POST_COMMENTS_SUCCESS":
+      return state;
+
+    case "POST_COMMENTS_ERROR":
+      return state;
+
     default:
       return state;
   }

@@ -13,6 +13,8 @@ export const theme = {
     lightGray: "#E6F1F6",
     hoverGray: "#CFD8DD",
     shadowGray: "#a0a0a0",
+    borderGray: "#8AA1A9",
+    titleGray: "#627C85",
     red: "#C10C30",
     blue: "#009ED3",
     yellow: "#f7cd5f",

@@ -1,18 +1,32 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { fetchComments } from "../../actions";
 import InfiniteScrollbar from "../common/infinite-scrollbar";
 import Comment from "./comment";
+import CommentBar from "./comment-bar";
 
 const Container = styled.div`
-  height: calc(100vh - 48px);
-  width: 100%; ;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const CommentsList = styled.div`
+  height: 100%;
+  @media screen and (min-width: 721px) {
+    width: 720px;
+  }
+  @media screen and (max-width: 720px) {
+    width: 100%;
+  }
 `;
 
 const List = styled(InfiniteScrollbar)`
-  height: 100%;
+  height: calc(100% - 116px);
+  box-shadow: 0px 2px 2px ${(props) => props.theme.colors.shadowGray};
 `;
 
 const DashboardManager = () => {
@@ -38,12 +52,18 @@ const DashboardManager = () => {
 
   return (
     <Container>
-      <List isLoading={isLoading} hasMore={true} onScrollEnd={getCommentsNext}>
-        {comments.comments.map((comment) => (
-          <Comment comment={comment} />
-        ))}
-      </List>
-      Hello
+      <CommentsList>
+        <CommentBar />
+        <List
+          isLoading={isLoading}
+          hasMore={comments.start < 480}
+          onScrollEnd={getCommentsNext}
+        >
+          {comments.comments.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))}
+        </List>
+      </CommentsList>
     </Container>
   );
 };
